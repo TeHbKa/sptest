@@ -1,0 +1,210 @@
+<tests name="ExampleActions.sff">
+  <variables>
+    <variable name="var" method="void">
+    </variable>
+  </variables>
+  <test name="Перейти на страницу" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://www.google.ru/">Открываем страницу google.com</test-case>
+    </test-cases>
+  </test>
+  <test name="Открыть в новой вкладке" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="http://yandex.ru/search/?text=%D0%BC%D0%B0%D0%B9%D0%BB&amp;lr=2">Открываем поискавый запрос</test-case>
+      <test-case action="open_new_tab" method="xpath" params="//div[@class='serp-list']//h2[@class='serp-item__title'][1]/a" value="">Открываем ссылку на страницу Mail.ru в новой вкладке</test-case>
+    </test-cases>
+  </test>
+  <test name="Перейти на вкладку" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="http://yandex.ru/search/?text=%D0%BC%D0%B0%D0%B9%D0%BB&amp;lr=2">Открываем поискавый запрос</test-case>
+      <test-case action="open_new_tab" method="xpath" params="//div[@class='serp-list']//h2[@class='serp-item__title'][1]/a" value="">Открываем ссылку на страницу Mail.ru в новой вкладке</test-case>
+      <test-case action="next_tab" method=" " params="" value="1">Активируем вкладку Yandex</test-case>
+      <test-case action="pause" method=" " params="" value="1000">Пауза для наглядности</test-case>
+      <test-case action="next_tab" method=" " params="" value="2">Активируем вкладку mail</test-case>
+      <test-case action="pause" method=" " params="" value="1000">Пауза для наглядности</test-case>
+    </test-cases>
+  </test>
+  <test name="Выбрать фрейм" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://developers.google.com/structured-data/testing-tool/">Открываем страницу с фреймами</test-case>
+      <test-case action="not_element" method="id" params="menu-bar" value="">Проверяем отсутсвие элемент из фрейма</test-case>
+      <test-case action="next_frame" method="xpath" params="//iframe" value="//iframe">Выбираем фрейм</test-case>
+      <test-case action="search" method="id" params="menu-bar" value="">Ишем элемент из фрейма</test-case>
+      <test-case action="next_frame" method="xpath" params="parent" value="//iframe">Выбираем родительскую область</test-case>
+      <test-case action="not_element" method="id" params="menu-bar" value="">Проверяем отсутсвие элемент из фрейма</test-case>
+    </test-cases>
+  </test>
+  <test name="Выполнить jscript" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем google.com</test-case>
+      <test-case action="jscript" method=" " params="" value="alert('Выполняем скрипт');">Выполняем скрипт</test-case>
+      <test-case action="screen" method=" " params="" value="test">test</test-case>
+      <test-case action="pause" method=" " params="" value="1000">пауза для наглядности</test-case>
+    </test-cases>
+  </test>
+  <test name="Сделать скриншот" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="screen" method=" " params="" value="имя_файла_скрина">Делаем скриншот страницы(Скрин сохраняется в папке [dir program]\Screenshot\[name text]\[name browser])</test-case>
+    </test-cases>
+  </test>
+  <test name="Сделать скриншот элемента" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="screen_element" method="id" params="hplogo" value="название_файла_скрина">Делаем скриншот элемента(Скрин сохраняется в папке [dir program]\Screenshot\[name text]\[name browser])</test-case>
+    </test-cases>
+  </test>
+  <test name="Ввести текст" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="text" method="name" params="q" value="текст">Вводи текст</test-case>
+    </test-cases>
+  </test>
+  <test name="Найти элемент" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="search" method="name" params="q" value="">Проверяем наличие элемента на странице</test-case>
+    </test-cases>
+  </test>
+  <test name="Кликнуть по элементу" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="click" method="name" params="btnI" value="">Кликаем кнопку 'Мне повезёт!'</test-case>
+    </test-cases>
+  </test>
+  <test name="Двойной клик по элементу" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="http://examples.sencha.com/extjs/6.0.0/examples/classic/tree/locking-treegrid.html">Открываем страницу</test-case>
+      <test-case action="double_click" method="xpath" params="//span[text()='Housewares']" value="">Дважды кликаем по элементу</test-case>
+    </test-cases>
+  </test>
+  <test name="Навести указатель на элемент" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="move_element" method="id" params="gs_ok0" value="">Наводи указатель на значек экранной клавиатуры</test-case>
+    </test-cases>
+  </test>
+  <test name="Пауза" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="pause" method=" " params="" value="3000">пауза 3 секунды</test-case>
+    </test-cases>
+  </test>
+  <test name="Сравнить значения элементов" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://www.google.ru/#newwindow=1&amp;q=selenium">Открываем страницу результатов поиска</test-case>
+      <test-case action="compare_all" method="xpath" params="//div[@class='srg']//h3/a" value="*elenium*">Проверяем искомое слово во всех результатах поиска на странице</test-case>
+    </test-cases>
+  </test>
+  <test name="Сравнить значение элемента" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://www.google.ru/#newwindow=1&amp;q=selenium">Открываем страницу результатов поиска</test-case>
+      <test-case action="compare" method="xpath" params="//div[@class='srg']//h3[1]/a" value="*Selenium*">Проверяем искомое слово присутсвует в первом строке результатов поиска</test-case>
+      <test-case action="compare" method="id" params="hdtb-tls" value="*поиска">Проверяем что значение элемента заканчивается словом 'поиск'</test-case>
+      <test-case action="compare" method="id" params="hdtb-tls" value="Инструм*">Проверяем что значение элемента начинается словом 'Инструм'</test-case>
+    </test-cases>
+  </test>
+  <test name="Сравнить скриншот элемента" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="compare_screen_element" method="id" params="hplogo" value="путь_до_файла_эталона_сделанного_с_помошью_действия_СделатьСкриншотЭлемента\имя_файла.png">Сравниваем скриншот элемента</test-case>
+    </test-cases>
+  </test>
+  <test name="Проверка отсутсвия элемента" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="not_element" method="id" params="qwerty" value="">Проверяем что данный элемент отсутствует на странице</test-case>
+    </test-cases>
+  </test>
+  <test name="Сравнить значение атрибута" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="compare_attribute" method="id" params="hplogo" value="title|Google">Проверяем значение атрибута title элемента</test-case>
+    </test-cases>
+  </test>
+  <test name="Сравнить количество элементов" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://www.google.ru/#newwindow=1&amp;q=selenium">Открываем страницу результатов поиска</test-case>
+      <test-case action="number_elements" method="xpath" params="//div[@class='srg']//h3" value="10">Проверяем количество результатов поиска на странице</test-case>
+    </test-cases>
+  </test>
+  <test name="Проверить Title" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="title" method=" " params="" value="Google">Проверяем Title страницы</test-case>
+    </test-cases>
+  </test>
+  <test name="Присвоить значение" screen_error="true" close_browser="true" ignore_error="false">
+    <browsers wait="5">
+      <browser name="firefox" width="0" height="0" />
+    </browsers>
+    <test-cases>
+      <test-case action="go" method=" " params="" value="https://google.com">Открываем страницу google.com</test-case>
+      <test-case action="assign_value" method=" " params="pagesource" value="$var$">Присваиваем переменной код страницы</test-case>
+      <test-case action="assign_value" method=" " params="pagesource|//div[@id='gs_lc0']" value="$var$">Присваиваем переменной код элемента страницы</test-case>
+      <test-case action="assign_value" method=" " params="title" value="$var$">Присваиваем переменной Title страницы</test-case>
+      <test-case action="assign_value" method=" " params="url" value="$var$">Присваиваем переменной URL страницы</test-case>
+      <test-case action="assign_value" method="xpath" params="//div[@id='hplogo']/div" value="$var$">Присваиваем переменной значение элемента</test-case>
+      <test-case action="assign_value" method="id" params="hplogo|title" value="$var$">Присваиваем переменной значение атрибута элемента</test-case>
+    </test-cases>
+  </test>
+</tests>

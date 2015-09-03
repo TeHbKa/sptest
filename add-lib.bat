@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=lib/spidertestci_lib.jar -DgroupId=spidertestci -DartifactId=spidertestci_lib -Dversion=1.1.1 -Dpackaging=jar
